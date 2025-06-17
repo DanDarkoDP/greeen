@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALDON Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="pagealdon.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="logo">ALDON STUDIO®</div>
+        <div class="time-zone">START - 18.04.25</div>
+      
+        <nav class="nav desktop-nav">
+          <a href="#work">РОБОТИ</a>
+          <a href="#about">ПРО НАС</a>
+          <a href="#services">ПОСЛУГИ</a>
+          <a href="#contact">КОНТАКТ</a>
+        </nav>
+      
+        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+      </header>
+      
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="#work">РОБОТИ</a>
+        <a href="#about">ПРО НАС</a>
+        <a href="#services">ПОСЛУГИ</a>
+        <a href="#contact">КОНТАКТ</a>
+      </nav>
+
+  <main class="hero">
+    <h1 class="hero-title animate-fade">ALDON</h1>
+    <div class="hero-subtext animate-slide">
+      <p>Будуємо бренди через<br />дизайн, заснований на стратегії<br />та концептуальному мисленні.</p>
+      <a href="#about" class="learn-link">ДІЗНАТИСЬ БІЛЬШЕ ПРО НАС</a>
+    </div>
+    
+    <div class="showreel">
+      <img src="aldonnnn.gif" alt="Шоуріл Aldon" />
+      <p>Студія ALDON<br />Шоуріл (22-24)</p>
+    </div>
+
+    <div class="scroll-indicator">(ПРОКРУТИ)</div>
+  </main>
+
+
+  <section class="fullscreen-image-section">
+    <div class="overlay">
+      <h2 class="overlay-text">ALDON STUDIO</h2>
+    </div>
+  </section>
+
+  <section class="gif-block">
+    <div class="gif-wrapper">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW5seWU4eWRkeGN4dXpmcHVjODJzeTBsajd1MDIzNHc5bDk0cmEyaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8PpFJcG4y8HqsxQumz/giphy.gif" alt="GIF 1" class="gif-item">
+      <img src="https://i.pinimg.com/originals/41/59/a2/4159a258b81478d2f288a5d675451321.gif" alt="GIF 2" class="gif-item">
+    </div>
+  </section>
+  
+  
+  
+
+
+  
+<!--про про про про про про -->
+
+
+
+
+
+  <!--кейси кейси кейси -->
+
+  <div class="projects-container">
+    <div id="projects"></div>
+  </div>
+  
+  
+
+  <div id="preloader">
+    <div class="preloader-content">
+      <div id="preloader-percent">0%</div>
+      <div class="preloader-footer">Aldon Studio</div>
+    </div>
+  </div>
+  <script>
+    let count = 0;
+    const percent = document.getElementById("preloader-percent");
+    const preloader = document.getElementById("preloader");
+  
+    const interval = setInterval(() => {
+      count++;
+      percent.textContent = count + "%";
+  
+      if (count >= 100) {
+        clearInterval(interval);
+        preloader.classList.add("hidden");
+      }
+    }, 20); // 0 → 100 за ~2 секунди
+  </script>  
+
+  <!--банер файлів кукіс-->
+<div class="cookie-banner" id="cookieBanner">
+    <p>Цей сайт використовує файли cookies для поліпшення досвіду користувача. 🍪</p>
+    <button id="cookieAccept">Підтвердити</button>
+  </div>
+
+
+<!--js для проектів кейсів дададададаад-->
+<script>
+    function slugify(text) {
+      return text.toLowerCase().replace(/\s+/g, "_").replace(/[^\w\-]+/g, "");
+    }
+  
+    async function loadProjects() {
+      const res = await fetch("https://opensheet.elk.sh/1Zo86vgMIuMfmmJuNw8Fk7sAGwFmsJi0ZOGvzScxhNqY/Sheet1");
+      const data = await res.json();
+      const container = document.getElementById("projects");
+  
+      data.forEach(project => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+  
+        card.innerHTML = `
+          <a href="project.html?project=${slugify(project.title)}" class="project-link">
+            <img src="${project.image}" alt="${project.title}" />
+            <div class="project-text">
+              <div class="project-number">${project.number}</div>
+              <div class="project-title">${project.title}</div>
+              <div class="project-description">${project.description}</div>
+            </div>
+          </a>
+        `;
+  
+        container.appendChild(card);
+      });
+    }
+  
+    document.addEventListener("DOMContentLoaded", loadProjects);
+  </script>
+  
+
+
+<!--файли кукіс файли кукіс скрипт -->
+<script>
+    // Cookie banner logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const banner = document.getElementById("cookieBanner");
+      const acceptBtn = document.getElementById("cookieAccept");
+  
+      // Показуємо тільки якщо ще не прийнято
+      if (!localStorage.getItem("cookiesAccepted")) {
+        banner.style.display = "flex";
+      }
+  
+      acceptBtn.addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        banner.style.display = "none";
+      });
+    });
+  </script>
+
+  <!--футер футер утре футре футре -->
+
+  <footer class="custom-footer">
+    <div class="footer-top">
+      <div class="footer-col">
+        <p>● START A PROJECT</p>
+      </div>
+      <div class="footer-col center">
+        <p>HELLO@ALDON.CO.ZA</p>
+        <p>+27 79 452 0600</p>
+      </div>
+      <div class="footer-col nav">
+        <div class="footer-links">
+          <div>
+            <p>WORK</p>
+            <p>ABOUT</p>
+            <p>SERVICES</p>
+            <p>CONTACT</p>
+          </div>
+          <div>
+            <p>BRANDING</p>
+            <p>DESIGN</p>
+            <p>CONTENT</p>
+            <p>MARKETING</p>
+          </div>
+          <div>
+            <p>INSTAGRAM</p>
+            <p>LINKEDIN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p class="footer-year">UJS©2024</p>
+      <h2 class="footer-logo">ADS.01-01</h2>
+      <p class="footer-tagline">BRAND FOCUSED STUDIO</p>
+    </div>
+  </footer>
+  
+
+
+<!--зробити клік клік для проектів клік для проектів клік для проектів-->
+
+  
+
+<script src="pagealdon.js"></script>
+</body>
+</html>
+

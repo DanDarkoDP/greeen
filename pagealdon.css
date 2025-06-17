@@ -1,0 +1,586 @@
+
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: #0b0b0b;
+    overflow-x: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #fff;
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .logo {
+    font-size: 16px;
+  }
+  
+  .time-zone {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+  }
+  
+  .nav a {
+    margin-left: 24px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  
+  .mobile-menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    border-top: 1px solid #eee;
+  }
+  
+  .mobile-nav a {
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .mobile-nav.active {
+    display: flex;
+  }
+  
+  .hero {
+    position: relative;
+    height: calc(100vh - 80px);
+    padding-top: 120px;
+  }
+  
+  .hero-title {
+    font-size: 300px;
+    
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -10px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .hero-subtext {
+    position: absolute;
+    bottom: 120px;
+    left: 40px;
+    font-size: 28px;
+    max-width: 500px;
+    font-weight: 500;
+    animation: slideIn 1.5s ease-in-out;
+  }
+  
+  .learn-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+  }
+  
+  .showreel {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    text-align: left;
+    max-width: 280px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .showreel img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  
+  .showreel p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* ====== АДАПТАЦІЯ ====== */
+  
+  @media (max-width: 1024px) {
+    .hero-title {
+      font-size: 160px;
+      letter-spacing: -6px;
+    }
+  
+    .hero-subtext {
+      font-size: 20px;
+      bottom: 100px;
+    }
+  
+    .showreel {
+      right: 30px;
+      width: 220px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav,
+    .time-zone,
+    .showreel {
+      display: none;
+    }
+  
+    .mobile-menu-icon {
+      display: block;
+    }
+  
+    .hero {
+      padding: 20px;
+    }
+  
+    .hero-title {
+      font-size: 90px;
+      letter-spacing: -3px;
+      text-align: left;
+    }
+  
+    .hero-subtext {
+      position: static;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  
+    .scroll-indicator {
+      display: none;
+    }
+  }
+  
+  /* ====== Анімації ====== */
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  
+  .animate-fade {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .animate-slide {
+    animation: slideIn 1.5s ease-in-out;
+  }
+   /* прелоадер прероадел пре пре пре */
+   #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  
+  #preloader-percent {
+    font-size: 48px;
+    font-weight: bold;
+    animation: fadeIn 1s ease;
+  }
+  
+  .preloader-footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: white;
+    opacity: 0.8;
+  }
+  
+  /* Приховання */
+  #preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  /* Простий fade-in */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+
+  /*про про про про про про про про про про про про про про про про про про про про про про пор по роп ро пор ор о */
+  .fullscreen-image-section {
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://i.pinimg.com/736x/2e/2d/e2/2e2de278a1492f733bb260a95e219db3.jpg');
+    background-size: cover;
+    font-family: 'Anton', sans-serif; 
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    
+  }
+  .gif-block {
+    width: 100%;
+    min-height: 100vh;
+    
+    padding: 40px 0; /* Відступ зверху і знизу */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gif-wrapper {
+    display: flex;
+    gap: 20px; /* Відступ між GIF */
+    width: 100%;
+    height: calc(100vh - 80px); /* Мінус паддінг */
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .gif-item {
+    flex: 1;
+    object-fit: cover;
+    height: 100%;
+     
+
+  }
+  
+  /* ===== АДАПТАЦІЯ ===== */
+  @media (max-width: 768px) {
+    .gif-wrapper {
+      flex-direction: column;
+      gap: 20px;
+      height: auto;
+    }
+  
+    .gif-item {
+      width: 100%;
+      height: 45vh;
+    }
+  }
+  
+  
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.4); /* напівпрозорий чорний фон */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay-text {
+    color: white;
+    font-size: 64px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  
+  /* Адаптація */
+  @media (max-width: 768px) {
+    .overlay-text {
+      font-size: 32px;
+      padding: 0 20px;
+    }
+  }
+  
+
+  /*кейси кейси кейси кейси */
+  .projects-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    
+  }
+  
+  .project-card img {
+    width: 100%;
+    height: auto;
+    
+    margin-bottom: 20px;
+  }
+  
+  .project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .project-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .project-description {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .project-number {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  @media (min-width: 768px) {
+    .project-card {
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+    }
+  
+    .project-card img {
+      width: 50%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+  
+    .project-text {
+      width: 50%;
+    }
+  
+    .project-title {
+      font-size: 24px;
+    }
+  
+    .project-description {
+      font-size: 18px;
+    }
+  }
+  
+  
+  /* прелоадер пре пре пре */
+  .preloader {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  
+  .preloader-text {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  /*файли кукіс файли кукіс */
+  .cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: #1a1a1a;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .cookie-banner p {
+    margin: 0;
+    font-size: 14px;
+    flex: 1 1 auto;
+  }
+  
+  .cookie-banner button {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .cookie-banner button:hover {
+    background-color: #dddddd;
+  }
+  
+/*футер футер футер футер футер футер */
+.custom-footer {
+    padding: 40px;
+    background: #fff;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .footer-col {
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .footer-col.center {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .footer-col.nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .footer-links p {
+    margin: 4px 0;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-logo {
+    font-size: 200px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  
+  .footer-year,
+  .footer-tagline {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  /* ===== MOBILE ADAPTATION ===== */
+  
+  @media (max-width: 768px) {
+    .footer-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .footer-col.center {
+      text-align: left;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .footer-logo {
+      font-size: 80px;
+      margin: 20px 0;
+      text-align: left;
+    }
+  
+    .footer-year,
+    .footer-tagline {
+      font-size: 12px;
+    }
+  }
+  
+  

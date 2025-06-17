@@ -1,0 +1,69 @@
+
+
+  <!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Проєкт</title>
+  <link rel="stylesheet" href="pagealdon.css" />
+  <style>
+    body { font-family: 'Inter', sans-serif; padding:40px; max-width:800px; margin:auto;}
+    img { max-width:100%; border-radius:8px; display:block; margin:20px 0;}
+    h1 { font-size:32px; margin-bottom:16px; }
+    
+  </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">ALDON STUDIO®</div>
+        <div class="time-zone">START - 18.04.25</div>
+      
+        <nav class="nav desktop-nav">
+          <a href="#work">РОБОТИ</a>
+          <a href="#about">ПРО НАС</a>
+          <a href="#services">ПОСЛУГИ</a>
+          <a href="#contact">КОНТАКТ</a>
+        </nav>
+      
+        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+      </header>
+      
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="#work">РОБОТИ</a>
+        <a href="#about">ПРО НАС</a>
+        <a href="#services">ПОСЛУГИ</a>
+        <a href="#contact">КОНТАКТ</a>
+      </nav>
+  <a href="pagealdon.html">← Назад до кейсів</a>
+  <div id="projectPage"></div>
+
+  <script>
+    function slugify(text) {
+      return text.toLowerCase().replace(/\s+/g, '_').replace(/[^\w\-]+/g, '');
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get('project');
+
+    fetch('https://opensheet.elk.sh/1Zo86vgMIuMfmmJuNw8Fk7sAGwFmsJi0ZOGvzScxhNqY/Sheet1')
+      .then(res => res.json())
+      .then(data => {
+        const p = data.find(item => slugify(item.title) === projectId);
+        const target = document.getElementById('projectPage');
+        if (p) {
+          target.innerHTML = `
+            <h1>${p.title}</h1>
+            <img src="${p.image}" alt="${p.title}">
+            <p>${p.fullDescription || p.description}</p>
+            ${p.image2 ? `<img src="${p.image2}" alt="">` : ''}
+            ${p.image3 ? `<img src="${p.image3}" alt="">` : ''}
+          `;
+        } else {
+          target.innerHTML = `<p>Проєкт не знайдено.</p>`;
+        }
+      })
+      .catch(console.error);
+  </script>
+</body>
+</html>
