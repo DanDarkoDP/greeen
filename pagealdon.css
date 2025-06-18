@@ -173,19 +173,21 @@
     }
   
     .hero {
-      padding: 20px;
+      padding: 10px;
     }
   
     .hero-title {
-      font-size: 90px;
-      letter-spacing: -3px;
-      text-align: left;
+      font-size: 110px;
+      letter-spacing: -7px;
+      
+      transform: translateY(150px);
     }
   
     .hero-subtext {
       position: static;
-      font-size: 18px;
-      margin-top: 20px;
+      font-size: 23px;
+      margin-top: 2px;
+      transform: translateY(100px);
     }
   
     .scroll-indicator {
