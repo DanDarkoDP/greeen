@@ -30,6 +30,19 @@
         <a href="#services">ПОСЛУГИ</a>
         <a href="#contact">КОНТАКТ</a>
       </nav>
+      <script>
+        function toggleMenu() {
+          const menu = document.getElementById("mobileNav");
+          menu.classList.toggle("active");
+        }
+      
+        // Закривати меню після кліку на пункт
+        document.querySelectorAll("#mobileNav a").forEach(link => {
+          link.addEventListener("click", () => {
+            document.getElementById("mobileNav").classList.remove("active");
+          });
+        });
+      </script>
 
   <main class="hero">
     <h1 class="hero-title animate-fade">ALDON</h1>

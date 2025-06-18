@@ -5,13 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urbanjava Studio</title>
   <link rel="stylesheet" href="about.css" />
+  
 </head>
 <body>
+    <header class="header">
+        <a href ="index.html">
+        <div  class="logo">ALDON STUDIO®</div>
+        </a>
+        <div class="time-zone">START - 18.04.25</div>
+      
+        <nav class="nav desktop-nav">
+          <a href="#work">РОБОТИ</a>
+          <a href="about.html">ПРО НАС</a>
+          <a href="#services">ПОСЛУГИ</a>
+          <a href="#contact">КОНТАКТ</a>
+        </nav>
+      
+        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+      </header>
+      
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="#work">РОБОТИ</a>
+        <a href="about.html">ПРО НАС</a>
+        <a href="#services">ПОСЛУГИ</a>
+        <a href="#contact">КОНТАКТ</a>
+      </nav>
+      <script>
+        function toggleMenu() {
+          const menu = document.getElementById("mobileNav");
+          menu.classList.toggle("active");
+        }
+      
+        // Закривати меню після кліку на пункт
+        document.querySelectorAll("#mobileNav a").forEach(link => {
+          link.addEventListener("click", () => {
+            document.getElementById("mobileNav").classList.remove("active");
+          });
+        });
+      </script>
+
   <header class="hero">
-    <h1>URBANJAVA STUDIO</h1>
+    <h1>ALDON DIGITAL STUDIO</h1>
     <p class="subtitle">Holistic boutique experiences that express the heart of your brand.</p>
     <div class="scroll-note">(SCROLL)</div>
-    <img src="images/thumb-plant.png" alt="Thumbs up in jungle" class="hero-image" />
+    <img src="9cabc68e3948447e3045d99f598e86dc.jpg" alt="Thumbs up in jungle" class="hero-image" />
   </header>
 
   <section class="section">
@@ -46,9 +83,46 @@
         </p>
       </div>
       <div class="image-block">
-        <img src="images/christo.png" alt="Christo Smit" />
+        <img src="939303f572bf5d1096fc3a249aa8ec53.jpg" alt="Christo Smit" />
       </div>
     </div>
   </section>
+  <footer class="custom-footer">
+    <div class="footer-top">
+      <div class="footer-col">
+        <p>● START A PROJECT</p>
+      </div>
+      <div class="footer-col center">
+        <p>HELLO@ALDON.CO.ZA</p>
+        <p>+27 79 452 0600</p>
+      </div>
+      <div class="footer-col nav">
+        <div class="footer-links">
+          <div>
+            <p>WORK</p>
+            <p>ABOUT</p>
+            <p>SERVICES</p>
+            <p>CONTACT</p>
+          </div>
+          <div>
+            <p>BRANDING</p>
+            <p>DESIGN</p>
+            <p>CONTENT</p>
+            <p>MARKETING</p>
+          </div>
+          <div>
+            <p>INSTAGRAM</p>
+            <p>LINKEDIN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p class="footer-year">UJS©2024</p>
+      <h2 class="footer-logo">ADS.01-01</h2>
+      <p class="footer-tagline">BRAND FOCUSED STUDIO</p>
+    </div>
+  </footer>
 </body>
 </html>
