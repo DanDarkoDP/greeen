@@ -16,7 +16,7 @@
          
       
         <nav class="nav desktop-nav">
-          <a href="#work">РОБОТИ</a>
+          <a href="#work">РОБОТИ</a>   
           <a href="about.html">ПРО НАС</a>
           <a href="services.html">СЕРВІС</a>
           <a href="#contact">КОНТАКТ</a>
@@ -65,6 +65,7 @@
     <div class="overlay">
       <h2 class="overlay-text">ALDON STUDIO</h2>
     </div>
+    <div class="progress-bar"></div>
   </section>
 
   <section class="gif-block">
@@ -175,6 +176,26 @@
       });
     });
   </script>
+
+
+<script>
+  const section = document.querySelector('.fullscreen-image-section');
+  const images = [
+    'https://i.pinimg.com/736x/2e/2d/e2/2e2de278a1492f733bb260a95e219db3.jpg',
+    'https://i.pinimg.com/736x/48/27/e1/4827e19bb251858508aff5401bd32f6b.jpg',
+    'https://i.pinimg.com/736x/d2/1f/c5/d21fc5852b1ff6a8ba9cf8d9bff0343c.jpg'
+  ];
+
+  let current = 0;
+
+  function changeBackground() {
+    current = (current + 1) % images.length;
+    section.style.backgroundImage = `url('${images[current]}')`;
+  }
+
+  setInterval(changeBackground, 3000); // змінювати кожні 3 сек
+</script>
+
 
   <!--футер футер утре футре футре -->
 
