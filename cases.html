@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library — Aldon Studio</title>
+    <link rel="stylesheet" href="cases.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+    <div class="logo">ALDON STUDIO®</div>
+    <div class="time-zone">START - 18.04.25</div>
+     
+  
+    <nav class="nav desktop-nav">
+      <a href="cases.html">РОБОТИ</a>   
+      <a href="about.html">ПРО НАС</a>
+      <a href="services.html">СЕРВІС</a>
+      <a href="#contact">КОНТАКТ</a>
+    </nav>
+  
+    <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#work">РОБОТИ</a>
+    <a href="about.html">ПРО НАС</a>
+    <a href="services.html">СЕРВІС</a>
+    <a href="#contact">КОНТАКТ</a>
+  </nav>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileNav");
+      menu.classList.toggle("active");
+    }
+  
+    // Закривати меню після кліку на пункт
+    document.querySelectorAll("#mobileNav a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.remove("active");
+      });
+    });
+  </script>
+    <!--тут у нас да вот так вот основна частина угу-->
+    <div class="library-container">
+      <div class="project-showcase">
+        <div class="project-image">
+          <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="In The Park" />
+        </div>
+        <div class="project-meta">
+          <span class="project-id">WK–148</span>
+          <h2 class="project-title">In The Park</h2>
+          <p class="project-author">BonTemps®</p>
+        </div>
+      </div>
+
+      <div class="library-info">
+        <p class="description">
+          An ever-growing collection of carefully curated works from the Design Everywhere Library.
+        </p>
+        <a href="#" class="instagram-link">Discover more on our Instagram ↗</a>
+        <h1 class="library-heading">LIBRARY</h1>
+      </div>
+
+      <div class="trending">
+        <span class="trending-label">● TRENDING</span>
+        <div class="trending-projects">
+          <div class="trending-item">
+            <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Maiella" />
+            <span class="project-id">WK–154</span>
+            <h4 class="title">Maiella</h4>
+            <p class="author">Multiverse Studio</p>
+          </div>
+          <div class="trending-item">
+            <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Split Watches" />
+            <span class="project-id">WK–157</span>
+            <h4 class="title">Split Watches</h4>
+            <p class="author">20(SOMETHING)</p>
+          </div>
+          <div class="trending-item">
+            <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Story Horse" />
+            <span class="project-id">WK–152</span>
+            <h4 class="title">Story Horse</h4>
+            <p class="author">Andrés Higueros</p>
+          </div>
+        </div>
+      </div>
+    </div>
+   <!--футер футер футер футер футер футер футер футер футер футер-->
+   <footer class="custom-footer">
+    <div class="footer-top">
+      <div class="footer-col">
+        <p>● Почати проект</p>
+      </div>
+      <div class="footer-col center">
+        <p>HELLO@ALDON.COM</p>
+        <p>+421 0949 121 017</p>
+      </div>
+      <div class="footer-col nav">
+        <div class="footer-links">
+          <div>
+            
+            <p>Роботи</p>
+            <p>Про</p>
+            <p>Сервіс</p>
+            <p>Контакти</p>
+          </div>
+          <div>
+            <p>Брендинг</p>
+            <p>Дизайн</p>
+            <p>Контент</p>
+            <p>Маркетинг</p>
+            <p>Розробка</p>
+          </div>
+          <div>
+            <p>Інстаграм</p>
+            <p>Лінкед</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p class="footer-year">UJS©2024</p>
+      <h2 class="footer-logo">ADS.01-01</h2>
+      <p class="footer-tagline">Aldon Studio</p>
+    </div>
+  </footer>
+
+  </body>
+</html>
