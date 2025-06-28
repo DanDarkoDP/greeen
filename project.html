@@ -1,71 +1,93 @@
 
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Проєкт</title>
-  <link rel="stylesheet" href="pagealdon.css" />
-  <style>
-    body { font-family: 'Inter', sans-serif; padding:40px; max-width:800px; margin:auto;}
-    img { max-width:100%; border-radius:8px; display:block; margin:20px 0;}
-    h1 { font-size:32px; margin-bottom:16px; }
-    
-  </style>
+  <link rel="stylesheet" href="project.css" />
 </head>
 <body>
+  <a href="index.html">← Назад до кейсів</a>
 
-    <header class="header">
-        <a href ="index.html">
-            <div  class="logo">ALDON STUDIO®</div>
-            </a> 
-        <div class="time-zone">START - 18.04.25</div>
-      
-        <nav class="nav desktop-nav">
-          <a href="cases.html">РОБОТИ</a>
-          <a href="about.html">ПРО НАС</a>
-          <a href="services.html">СЕРВІС</a>
-          <a href="contact.html">КОНТАКТ</a>
-        </nav>
-      
-        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
-      </header>
-      
-      <nav class="mobile-nav" id="mobileNav">
-        <a href="cases.html">РОБОТИ</a>
-        <a href="about.html">ПРО НАС</a>
-        <a href="services.html">СЕРВІС</a>
-        <a href="contact.html">КОНТАКТ</a>
-      </nav>
-  <a href="pagealdon.html">← Назад до кейсів</a>
-  <div id="projectPage"></div>
+  <div class="container">
+    <div class="project-meta">
+      <div class="meta-id">WK - 159</div>
+      <h1 class="title" id="projectTitle"></h1>
+      <div class="subtitle">Studio Freight</div>
 
-  <script>
-    function slugify(text) {
-      return text.toLowerCase().replace(/\s+/g, '_').replace(/[^\w\-]+/g, '');
-    }
+      <div class="tags">
+        <span>New York</span>
+        <span>Finance</span>
+        <span>Digital Design</span>
+        <span>Identity Design</span>
+        <span>Logo Design</span>
+      </div>
 
-    const params = new URLSearchParams(window.location.search);
-    const projectId = params.get('project');
+      <div class="date">DATE ADDED &nbsp;&nbsp; <strong> June 2025</strong></div>
+    </div>
 
-    fetch('https://opensheet.elk.sh/1Zo86vgMIuMfmmJuNw8Fk7sAGwFmsJi0ZOGvzScxhNqY/Sheet1')
-      .then(res => res.json())
-      .then(data => {
-        const p = data.find(item => slugify(item.title) === projectId);
-        const target = document.getElementById('projectPage');
-        if (p) {
-          target.innerHTML = `
-            <h1>${p.title}</h1>
-            <img src="${p.image}" alt="${p.title}">
-            <p>${p.fullDescription || p.description}</p>
-            ${p.image2 ? `<img src="${p.image2}" alt="">` : ''}
-            ${p.image3 ? `<img src="${p.image3}" alt="">` : ''}
-          `;
-        } else {
-          target.innerHTML = `<p>Проєкт не знайдено.</p>`;
+    <div id="projectPage" class="project-content"></div>
+  </div>
+
+  <div id="projectMedia" class="media-grid"></div>
+
+<script>
+  function slugify(text) {
+    return text.toLowerCase().replace(/\s+/g, '_').replace(/[^\w\-]+/g, '');
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const projectId = params.get('project');
+
+  fetch('https://opensheet.elk.sh/1Zo86vgMIuMfmmJuNw8Fk7sAGwFmsJi0ZOGvzScxhNqY/Sheet1')
+    .then(res => res.json())
+    .then(data => {
+      const p = data.find(item => slugify(item.title) === projectId);
+      const target = document.getElementById('projectPage');
+      const titleEl = document.getElementById('projectTitle');
+      const mediaEl = document.getElementById('projectMedia');
+
+      if (p) {
+        titleEl.textContent = p.title;
+        target.innerHTML = `
+          <p class="description">${p.fullDescription || p.description}</p>
+          ${p.image ? `<img src="${p.image}" alt="${p.title}" />` : ''}
+          ${p.image2 ? `<img src="${p.image2}" alt="">` : ''}
+          ${p.image3 ? `<img src="${p.image3}" alt="">` : ''}
+        `;
+
+        // Функція для генерації медіа-блоків
+        const mediaBlocks = [];
+
+        // Відео
+        for (let i = 1; i <= 4; i++) {
+          if (p[`video${i}`]) {
+            mediaBlocks.push(`
+              <video controls autoplay muted loop playsinline>
+                <source src="${p[`video${i}`]}" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            `);
+          }
         }
-      })
-      .catch(console.error);
-  </script>
+
+        // Додаткові фото
+        for (let i = 4; i <= 6; i++) {
+          if (p[`image${i}`]) {
+            mediaBlocks.push(`<img src="${p[`image${i}`]}" alt="image${i}"/>`);
+          }
+        }
+
+        mediaEl.innerHTML = mediaBlocks.join('');
+      } else {
+        titleEl.textContent = 'Проєкт не знайдено';
+        target.innerHTML = `<p>Інформацію не вдалося завантажити.</p>`;
+      }
+    })
+    .catch(console.error);
+</script>
+
+  <!--відео фото відео фото відео фото відео фото-->
+  
 </body>
 </html>

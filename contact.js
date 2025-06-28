@@ -1,7 +1,7 @@
 document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
   
-    const token = '7771016400:AAEiPBXth4-Vtzs7Q7Axyuh28jgnJoeQGFQ';
+    const token = '7697760576:AAEyhsr2z5qU5TY2ajxa7lvS-FLYOmuIHyA';
     const chat_id = '5352696360';
   
     const form = e.target;
