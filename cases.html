@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Library — Aldon Studio</title>
     <link rel="stylesheet" href="cases.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -24,7 +26,7 @@
   </header>
   
   <nav class="mobile-nav" id="mobileNav">
-    <a href="#work">РОБОТИ</a>
+    <a href="cases.html">РОБОТИ</a>
     <a href="about.html">ПРО НАС</a>
     <a href="services.html">СЕРВІС</a>
     <a href="#contact">КОНТАКТ</a>
@@ -43,50 +45,51 @@
     });
   </script>
     <!--тут у нас да вот так вот основна частина угу-->
-    <div class="library-container">
-      <div class="project-showcase">
-        <div class="project-image">
-          <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="In The Park" />
-        </div>
-        <div class="project-meta">
-          <span class="project-id">WK–148</span>
-          <h2 class="project-title">In The Park</h2>
-          <p class="project-author">BonTemps®</p>
-        </div>
-      </div>
-
-      <div class="library-info">
-        <p class="description">
-          An ever-growing collection of carefully curated works from the Design Everywhere Library.
-        </p>
-        <a href="#" class="instagram-link">Discover more on our Instagram ↗</a>
-        <h1 class="library-heading">LIBRARY</h1>
-      </div>
-
-      <div class="trending">
-        <span class="trending-label">● TRENDING</span>
-        <div class="trending-projects">
-          <div class="trending-item">
-            <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Maiella" />
-            <span class="project-id">WK–154</span>
-            <h4 class="title">Maiella</h4>
-            <p class="author">Multiverse Studio</p>
-          </div>
-          <div class="trending-item">
-            <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Split Watches" />
-            <span class="project-id">WK–157</span>
-            <h4 class="title">Split Watches</h4>
-            <p class="author">20(SOMETHING)</p>
-          </div>
-          <div class="trending-item">
-            <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Story Horse" />
-            <span class="project-id">WK–152</span>
-            <h4 class="title">Story Horse</h4>
-            <p class="author">Andrés Higueros</p>
+    <div class="container">
+        <!-- Left block -->
+        <div class="left">
+          <video class="image-wrapper"autoplay muted loop playsinline>
+            <source src="f7901b23d8da02bf2a7e077020102c48.mp4" alt="In the Park" class="main-image" />
+            
           </div>
         </div>
+    
+        <!-- Right block -->
+        <div class="right">
+          <div class="top-text">
+            <p class="description">
+              An ever-growing collection of carefully curated works from the Design Everywhere Library.
+            </p>
+            <a href="#" class="instagram">Discover more on our Instagram ↗</a>
+          </div>
+          <h1 class="library-title">LIBRARY</h1>
+    
+          <!-- Trending -->
+          <div class="trending">
+            <h2>● TRENDING</h2>
+            <div class="trending-grid">
+              <div class="item">
+                <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Maiella" />
+                <div class="meta">● WK–154</div>
+                <div class="item-title">Maiella</div>
+                <div class="item-sub">Multiverse Studio</div>
+              </div>
+              <div class="item">
+                <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Split Watches" />
+                <div class="meta">● WK–157</div>
+                <div class="item-title">Split Watches</div>
+                <div class="item-sub">20(SOMETHING)</div>
+              </div>
+              <div class="item">
+                <img src="075f857053bd445e494cf39fdc0bacd9.jpg" alt="Story Horse" />
+                <div class="meta">● WK–152</div>
+                <div class="item-title">Story Horse</div>
+                <div class="item-sub">Andrés Higueros</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
    <!--футер футер футер футер футер футер футер футер футер футер-->
    <footer class="custom-footer">
     <div class="footer-top">
@@ -100,7 +103,7 @@
       <div class="footer-col nav">
         <div class="footer-links">
           <div>
-            
+        
             <p>Роботи</p>
             <p>Про</p>
             <p>Сервіс</p>
@@ -117,17 +120,17 @@
             <p>Інстаграм</p>
             <p>Лінкед</p>
           </div>
-
+        
         </div>
       </div>
     </div>
-  
+                
     <div class="footer-bottom">
       <p class="footer-year">UJS©2024</p>
       <h2 class="footer-logo">ADS.01-01</h2>
       <p class="footer-tagline">Aldon Studio</p>
     </div>
   </footer>
-
+    
   </body>
 </html>
